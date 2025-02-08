@@ -2,7 +2,7 @@
 Image classification project using scikit learn and opencv to differentiate between bees and beewolfs
 
 ### Background 
-Beewolfs are a type of wasp that preys on bees. They are often mistaken for bees, but they are not. Bees are vital for the ecosystem as they play a large role in pollination. This project uses a machine learning model to differentiate between the two.
+Beewolfs are a type of wasp that preys on bees. Due to similarities in appearance they are mistaken for bees which can be harmful for the environment. Bees are vital for the ecosystem as they play a significant role in pollination. This project uses a machine learning model to differentiate between the two.
 
 ## Linux
 ```
