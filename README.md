@@ -21,6 +21,6 @@ $ python bee_or_not_bee.py
 
 ## Test the model
 ```
-$ python test_model.py
+$ python model_test.py
 ```
 
