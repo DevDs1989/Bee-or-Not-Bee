@@ -14,7 +14,7 @@ $ python3 bee_or_not_bee.py
 ## Windows
 ```
 $ python -m venv sklearn-env
-$ \sklearn-env\Scripts\Activate.ps1
+$ sklearn-env\Scripts\activate
 $ pip install -r requirements.txt
 $ python bee_or_not_bee.py
 ```
