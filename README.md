@@ -1,4 +1,8 @@
 # Bee-or-Not-Bee
+Image classification project using scikit learn and opencv to differentiate between bees and beewolfs
+
+### Background 
+Beewolfs are a type of wasp that preys on bees. They are often mistaken for bees, but they are not. Bees are vital for the ecosystem as they play a large role in pollination This project uses a machine learning model to differentiate between the two.
 
 ## Linux
 ```
