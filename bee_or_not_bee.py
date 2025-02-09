@@ -79,7 +79,7 @@ print(f"Train: {len(X_train)} images, Test: {len(X_test)} images")
 print(f"Training data shape: {X_train.shape}")
 print(f"Test data shape: {X_test.shape}")
 
-# show_hog_image(12)s
+# show_hog_image(12)
 
 sample_size, img_size = X_train.shape
 X_train_flatten = X_train.reshape(X_train.shape[0], -1)
