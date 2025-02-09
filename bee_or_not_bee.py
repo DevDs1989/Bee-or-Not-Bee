@@ -24,12 +24,26 @@ def extract_hog_features(image):
     )
     hog_image_rescaled = exposure.rescale_intensity(hog_image, in_range=(0, 10))
 
-    return hog_features
+    return hog_features, hog_image_rescaled
+
+def show_hog_image(index):
+    plt.figure(figsize=(12, 6))
+
+    plt.subplot(1, 2, 1)
+    plt.title("Original Image")
+    plt.imshow(cv2.cvtColor(cv2.imread(os.path.join(DATA_DIR, labels[index], os.listdir(os.path.join(DATA_DIR, labels[index]))[index])), cv2.COLOR_BGR2RGB))
+
+    plt.subplot(1, 2, 2)
+    plt.title("HOG Image")
+    plt.imshow(hog_images[index], cmap='gray')
+
+    plt.show()
 
 
 DATA_DIR = "./data"
 labels = []
 images = []
+hog_images = []
 image_extensions = ["jpg", "jpeg", "png"]
 for dir in os.listdir(DATA_DIR):
     label = dir
@@ -40,15 +54,16 @@ for dir in os.listdir(DATA_DIR):
             if imghdr.what(image_path) in image_extensions:
                 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
                 image = cv2.resize(image, (64, 64))
-                hog_image = extract_hog_features(image)
-                images.append(hog_image)
+                hog_features,hog_image = extract_hog_features(image)
+                images.append(hog_features)
                 labels.append(label)
+                hog_images.append(hog_image)
             else:
                 print(f"Invalid image extension: {image_path}")
                 os.remove(image_path)
         except Exception as e:
             print(f"Invalid image: {image_path}")
-            # os.remove(image_path)
+            os.remove(image_path)
             continue
 
 
@@ -63,6 +78,8 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 print(f"Train: {len(X_train)} images, Test: {len(X_test)} images")
 print(f"Training data shape: {X_train.shape}")
 print(f"Test data shape: {X_test.shape}")
+
+# show_hog_image(12)s
 
 sample_size, img_size = X_train.shape
 X_train_flatten = X_train.reshape(X_train.shape[0], -1)
