@@ -47,9 +47,9 @@ while True:
         print(f"Error: File {image_path} does not exist")
         continue
     try:
-        # Make prediction
         predicted_class = predict_image(image_path, model, label_encoder)
         print(f"\nPredicted class: {predicted_class}")
 
     except Exception as e:
         print(f"Error: {e}")
+ 

@@ -69,7 +69,7 @@ for dir in os.listdir(DATA_DIR):
 
 X = np.array(images)
 Y = np.array(labels)
-print(f"Loaded {len(X)} images with shape {X[0].shape} and labels {len(Y)}")
+print(f"Loaded {len(X)} images with shape {X[0].shape} and {len(Y)} labels")
 
 print(f"X: {X.shape}, Y: {Y.shape}")
 le = LabelEncoder()
