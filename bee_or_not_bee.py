@@ -26,16 +26,28 @@ def extract_hog_features(image):
 
     return hog_features, hog_image_rescaled
 
+
 def show_hog_image(index):
     plt.figure(figsize=(12, 6))
 
     plt.subplot(1, 2, 1)
     plt.title("Original Image")
-    plt.imshow(cv2.cvtColor(cv2.imread(os.path.join(DATA_DIR, labels[index], os.listdir(os.path.join(DATA_DIR, labels[index]))[index])), cv2.COLOR_BGR2RGB))
+    plt.imshow(
+        cv2.cvtColor(
+            cv2.imread(
+                os.path.join(
+                    DATA_DIR,
+                    labels[index],
+                    os.listdir(os.path.join(DATA_DIR, labels[index]))[index],
+                )
+            ),
+            cv2.COLOR_BGR2RGB,
+        )
+    )
 
     plt.subplot(1, 2, 2)
     plt.title("HOG Image")
-    plt.imshow(hog_images[index], cmap='gray')
+    plt.imshow(hog_images[index], cmap="gray")
 
     plt.show()
 
@@ -54,7 +66,7 @@ for dir in os.listdir(DATA_DIR):
             if imghdr.what(image_path) in image_extensions:
                 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
                 image = cv2.resize(image, (64, 64))
-                hog_features,hog_image = extract_hog_features(image)
+                hog_features, hog_image = extract_hog_features(image)
                 images.append(hog_features)
                 labels.append(label)
                 hog_images.append(hog_image)
