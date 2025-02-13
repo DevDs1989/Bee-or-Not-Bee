@@ -51,6 +51,7 @@ def show_hog_image(index):
 
     plt.show()
 
+
 def main():
     DATA_DIR = "./data"
     labels = []
@@ -77,7 +78,6 @@ def main():
                 print(f"Invalid image: {image_path}")
                 os.remove(image_path)
                 continue
-
 
     X = np.array(images)
     Y = np.array(labels)
@@ -111,5 +111,7 @@ def main():
         pickle.dump(le, encoder)
     print("Model and encoder saved successfully")
 
-if __name__ = "__main__":
+
+if __name__ == "__main__":
     main()
+
