@@ -27,7 +27,7 @@ def extract_hog_features(image):
     return hog_features, hog_image_rescaled
 
 
-def show_hog_image(index):
+def show_hog_image(index, DATA_DIR, labels, hog_images):
     plt.figure(figsize=(12, 6))
 
     plt.subplot(1, 2, 1)
@@ -44,7 +44,6 @@ def show_hog_image(index):
             cv2.COLOR_BGR2RGB,
         )
     )
-
     plt.subplot(1, 2, 2)
     plt.title("HOG Image")
     plt.imshow(hog_images[index], cmap="gray")
@@ -91,7 +90,7 @@ def main():
     print(f"Training data shape: {X_train.shape}")
     print(f"Test data shape: {X_test.shape}")
 
-    # show_hog_image(12)
+    show_hog_image(12, DATA_DIR, labels, hog_images)
 
     # sample_size, img_size = X_train.shape
     X_train_flatten = X_train.reshape(X_train.shape[0], -1)
